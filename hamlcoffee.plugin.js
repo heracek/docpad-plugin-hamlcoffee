@@ -36,7 +36,7 @@ module.exports = function(BasePlugin){
             var templateData = opts.templateData
                 , hamlcoffee = require('haml-coffee')
                 ;
-            opts.content = hamlcoffee.compile(opts.content)()
+            opts.content = hamlcoffee.compile(opts.content)(templateData)
             next()
         }
 
