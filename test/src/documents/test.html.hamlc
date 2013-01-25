@@ -1,0 +1,12 @@
+!!!
+%head
+    %title Express App
+%body
+    - i = 0
+    - eat = (food) ->
+        %li{class: if ++i%2 then 'odd' else 'even' }
+            = food
+    - foods = ['broccoli','spinach','chocolate','potato','pork']
+    #testcontent
+        %ul.testlist
+            - eat food for food in foods when food isnt 'chocolate'
