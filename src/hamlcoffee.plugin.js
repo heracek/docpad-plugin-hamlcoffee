@@ -36,8 +36,7 @@ module.exports = function(BasePlugin){
             var templateData = opts.templateData
                 , hamlcoffee = require('haml-coffee')
                 ;
-            opts.content = hamlcoffee.compile(opts.content)(templateData)
-            next()
+            return hamlcoffee.compile(opts.content)(templateData);
         }
 
         HamlCoffeePlugin.prototype.config = {
@@ -51,9 +50,9 @@ module.exports = function(BasePlugin){
             ;
             if ( (inExtension === 'hamlc') && (outExtension === 'html') ) {
                 opts.content = this.renderHamlC(opts, next)
-            } else {
-                return next()
             }
+            
+            return next();
         }
 
         //HamlCoffeePlugin.prototype.isEnabled = function(){
